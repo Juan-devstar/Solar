@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Resultados</h1>
+        <p>Ubicación: {{ result.location }}</p>
+
+        <h2>Dispositivos Ingresados:</h2>
+        <ul>
+            {% for dispositivo in result.dispositivos %}
+                <li>
+                    <strong>{{ dispositivo.nombre }}</strong>: Consumo {{ dispositivo.consumo }} W, Cantidad {{ dispositivo.cantidad }}, Horas de uso diario {{ dispositivo.horas_uso }}
+                </li>
+            {% endfor %}
+        </ul>
+
+        <h2>Resultados del Cálculo:</h2>
+        <p>Potencia total necesaria: {{ result.potencia_total_kwh }} kWh</p>
+        <p>Potencia de cada panel solar: {{ result.potencia_panel_kw }} kW</p>
+        <p>Número de paneles necesarios: {{ result.num_paneles }}</p>
+
+        <h2>Simulación de Conexión:</h2>
+        {% if result.num_paneles <= 10 %}
+            <form action="/simular" method="post">
+                <input type="hidden" name="diagrama" value="conexión_10_paneles">
+                <button type="submit">Simular Conexión para 10 Paneles</button>
+            </form>
+        {% elif result.num_paneles <= 20 %}
+            <form action="/simular" method="post">
+                <input type="hidden" name="diagrama" value="conexión_20_paneles">
+                <button type="submit">Simular Conexión para 20 Paneles</button>
+            </form>
+        {% else %}
+            <form action="/simular" method="post">
+                <input type="hidden" name="diagrama" value="conexión_default">
+                <button type="submit">Simular Conexión Predeterminada</button>
+            </form>
+        {% endif %}
+
+        <a href="/">Volver</a>
+    </div>
+</body>
+</html>
