@@ -1,0 +1,83 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #e0f7fa, #a1c4fd); /* Fondo con gradiente */
+    color: #333; /* Color de texto principal */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Altura mínima del viewport */
+}
+
+.container {
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 10px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    padding: 20px;
+    width: 80%; /* Ancho del contenedor */
+    max-width: 800px; /* Ancho máximo */
+    text-align: center; /* Alineación centrada del texto */
+    margin: 20px; /* Margen exterior */
+}
+
+h1 {
+    color: #1e3c72; /* Color azul oscuro para los encabezados */
+}
+
+legend {
+    font-weight: bold; /* Fuente en negrita para leyendas */
+}
+
+label {
+    display: block; /* Mostrar etiquetas como bloques */
+    margin-bottom: 5px; /* Margen inferior */
+    font-weight: bold; /* Fuente en negrita para etiquetas */
+    color: #555; /* Color de etiquetas más tenue */
+}
+
+input[type="text"], input[type="number"], input[type="submit"] {
+    width: calc(100% - 22px); /* Ancho ajustado */
+    padding: 10px; /* Relleno */
+    margin: 10px 0; /* Margen */
+    border-radius: 5px; /* Esquinas redondeadas */
+    border: 1px solid #ccc; /* Borde gris */
+}
+
+input[type="submit"] {
+    background-color: #1e3c72; /* Color de fondo azul oscuro para botones */
+    color: white; /* Color de texto blanco */
+    cursor: pointer; /* Cambio de cursor */
+    border: none; /* Sin borde */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+input[type="submit"]:hover {
+    background-color: #0d2c4e; /* Color de fondo más oscuro al pasar el cursor */
+}
+
+a {
+    color: #1e3c72; /* Color azul oscuro para enlaces */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: bold; /* Fuente en negrita para enlaces */
+}
+
+a:hover {
+    text-decoration: underline; /* Subrayado al pasar el cursor */
+}
+
+/* Responsiveness */
+@media (max-width: 600px) {
+    .container {
+        width: 90%; /* Ancho ajustado para pantallas más pequeñas */
+        padding: 10px; /* Relleno reducido */
+    }
+
+    input[type="text"], input[type="number"], input[type="submit"] {
+        padding: 15px; /* Relleno aumentado para entradas en pantallas más pequeñas */
+    }
+
+    h1 {
+        font-size: 1.5em; /* Tamaño de fuente reducido para encabezados en pantallas más pequeñas */
+    }
+}
